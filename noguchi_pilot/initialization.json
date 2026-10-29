@@ -1,0 +1,25 @@
+{
+  "label": "approximate equilibrium pilot, not exact reproduction",
+  "N": [
+    30000,
+    10000,
+    19985
+  ],
+  "masses": [
+    0.6,
+    0.2,
+    0.2
+  ],
+  "softening": [
+    0.02,
+    0.04,
+    0.004
+  ],
+  "h": 0.25,
+  "Re": 0.05,
+  "assumed_z0": 0.02,
+  "assumed_halo_a": 0.2,
+  "seed": 2001,
+  "negative_streaming_grid_points": 3,
+  "initialization": "Jeans moments; no staged relaxation; spherical monopole approximation for spheroids; local vertical approximation for disc; Gaussian velocities; no escape rejection"
+}

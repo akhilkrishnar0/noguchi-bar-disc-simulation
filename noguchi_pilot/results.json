@@ -1,0 +1,61 @@
+{
+  "baseline": {
+    "initial": {
+      "disc_R50_kpc": 5.762565609987075,
+      "disc_z_rms_kpc": 0.2728317336900619,
+      "A2_0p05_to_0p6": 0.002878890860982112,
+      "N_A2": 22223
+    },
+    "final": {
+      "disc_R50_kpc": 5.819736675704858,
+      "disc_z_rms_kpc": 0.3302824459177225,
+      "A2_0p05_to_0p6": 0.030992025236084374,
+      "N_A2": 21992
+    },
+    "tree_energy_drift_fraction": 0.011381260753553637,
+    "Lz_drift_fraction": 0.00015046162613097103,
+    "force_error_fraction_percentiles_50_95_max": [
+      0.011503550000000001,
+      0.024479739999999996,
+      0.0336462
+    ],
+    "exact_energy": -0.8470213299371964,
+    "exact_K": 0.7868800111568858,
+    "exact_U": -1.633901341094082,
+    "exact_energy_drift_fraction": 0.011286526653442408
+  },
+  "half_step": {
+    "initial": {
+      "disc_R50_kpc": 5.762565609987075,
+      "disc_z_rms_kpc": 0.2728317336900619,
+      "A2_0p05_to_0p6": 0.002878890860982112,
+      "N_A2": 22223
+    },
+    "final": {
+      "disc_R50_kpc": 5.818017928281799,
+      "disc_z_rms_kpc": 0.33008906384335024,
+      "A2_0p05_to_0p6": 0.03002057266362317,
+      "N_A2": 21966
+    },
+    "tree_energy_drift_fraction": 0.00033960835100769007,
+    "Lz_drift_fraction": 0.00014644473151115278,
+    "exact_energy": -0.85641708266345,
+    "exact_K": 0.7942124599111134,
+    "exact_U": -1.650629542574563,
+    "exact_energy_drift_fraction": 0.00031902561852941954
+  },
+  "tight_force": {
+    "force_error_fraction_percentiles_50_95_max": [
+      0.00387146,
+      0.009228564499999998,
+      0.0152614
+    ]
+  },
+  "initial": {
+    "exact_energy": -0.8566903888446393,
+    "exact_K": 0.8105554933223453,
+    "exact_U": -1.667245882166985
+  },
+  "duration_code_units": 1.0,
+  "duration_Myr": 75.0
+}

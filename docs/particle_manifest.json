@@ -1,0 +1,18 @@
+{
+  "noguchi_pilot/initial.bin": {
+    "bytes": 4318920,
+    "sha256": "b30cd5131be1e64b0113fd0e2122824bd9336576b5272e3eedd6619e6b4c5e28"
+  },
+  "validation_run/live_tight/snapshot_400.bin": {
+    "bytes": 4318920,
+    "sha256": "a4e7bf85896a646c9aa19083268f503ba3d0193ff0978dbd7e91126133f2ef9b"
+  },
+  "validation_run/frozen_field/snapshot_400.bin": {
+    "bytes": 4318920,
+    "sha256": "ce5783b2adb7229c928b36d0516661728f01b3faaa9a7ed4281194d91911b1c4"
+  },
+  "validation_run/small_step/snapshot_200.bin": {
+    "bytes": 4318920,
+    "sha256": "d5adc271c9871100cc9644cd687a2c2fb39a1c33f487d3d5a6a0253ebd5af959"
+  }
+}

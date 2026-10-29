@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.pyc
+*.bin
+*.npz
+noguchi_pilot/nbody
+noguchi_pilot/exact_energy
+validation_run/nbody_validate
+validation_run/probe
+validation_run/exact_frozen_energy
+.DS_Store

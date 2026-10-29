@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "If using this experimental software, cite this repository and the underlying Noguchi (2001) paper. This is not an exact reproduction."
+title: "Bar-driven disc evolution: a numerical pilot and equilibrium validation"
+type: software
+authors:
+  - family-names: "Krishna R"
+    given-names: "Akhil"
+version: 0.1.0
+license: MIT
+keywords:
+  - galaxy dynamics
+  - N-body simulation
+  - stellar bars
+  - low surface brightness galaxies
+  - numerical validation
