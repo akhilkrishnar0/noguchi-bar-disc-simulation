@@ -17,7 +17,7 @@ def build(out:Path, nd:int=6000, nh:int=2000, nb:int=2000, iterations:int=4):
     diskpar=dict(type="Disk",surfaceDensity=.6/(2*np.pi*rd**2),scaleRadius=rd,scaleHeight=-hd)
     bulgepar=dict(type="Spheroid",mass=.2,scaleRadius=rb,gamma=1,beta=4,outerCutoffRadius=3)
     halopar=dict(type="Spheroid",mass=.2,scaleRadius=.2,gamma=1,beta=4,outerCutoffRadius=4)
-    dd,db,dh=[agama.Density(p) for p in (diskpar,bulgepar,halopar)]
+    dd,db,dh=[agama.Density(**p) for p in (diskpar,bulgepar,halopar)]
     sc=agama.SelfConsistentModel(rminSph=.001,rmaxSph=30,sizeRadialSph=40,
         lmaxAngularSph=4,RminCyl=.003,RmaxCyl=5,sizeRadialCyl=28,
         zminCyl=.003,zmaxCyl=3,sizeVerticalCyl=24)
