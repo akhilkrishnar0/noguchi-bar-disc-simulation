@@ -33,7 +33,9 @@ jobs:
           git add agama_fix/results/initial_conditions.json agama_fix/results/force_comparison.json agama_fix/results/fix_validation.json agama_fix/results/three_epochs_comparison.png agama_fix/results/numerical_diagnostics.png
           if ! git diff --cached --quiet; then
             git commit -m 'Publish force matching and 300 Myr live equilibrium comparison results'
-            git push
+            git fetch origin main
+            git rebase origin/main
+            git push origin HEAD:main
           fi
       - uses: actions/upload-artifact@v4
         if: always()
@@ -44,6 +46,7 @@ jobs:
             agama_fix/results/initial_conditions.json
             agama_fix/results/force_comparison.json
             agama_fix/results/fix_validation.json
+            agama_fix/results/*.png
             agama_fix/results/*/diagnostics.csv
             agama_fix/results/*/force_validation.csv
             agama_fix/results/*/solver.log
