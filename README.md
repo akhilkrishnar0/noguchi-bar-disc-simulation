@@ -1,5 +1,20 @@
 # Bar-driven disc evolution
 
+### Live 10k galaxy: force/softening diagnosis
+
+The AGAMA 300 Myr galaxy **failed** the initial short stationarity screen:
+the stellar disc thickened by 20.38% and exact energy drifted by 0.231%.
+A new controlled live study holds one AGAMA sampled phase-space realization
+fixed while comparing original vs tighter integration and smaller
+gravity softening. It includes an independent smooth-vs-direct gravitational
+force comparison and reads actual per-component softening values in tree nodes.
+**No improved physical equilibrium is claimed until the tests pass.**
+
+[Diagnostic source, exact methodology and measured results](agama_fix/README.md)
+
+---
+
+
 ### Next: 10,000-particle AGAMA-based live equilibrium trial (300 Myr)
 
 A new, separately documented candidate starts from iterative action-based
