@@ -1,5 +1,24 @@
 # Bar-driven disc evolution
 
+### NEW: Low-memory t=60 tests (equilibrium FAILED)
+
+A separate **1,500-particle** exploratory setup completed the full **t=0–60** interval
+(approximately **0–4.5 Gyr**) with **5 Myr saved epochs**. We generated an
+unforced simulation and a separate **externally imposed rotating-bar** control.
+The updated plots show **severe unphysical vertical thickening**; do not interpret
+them as evidence of bar-driven GLSB formation. The original, higher-N pilot
+below remains the historical baseline.
+
+![Low-N: 0, 2.25, and 4.5 Gyr, unforced vs forced](lowram/three_snapshots.png)
+
+![Updated low-N evolution without imposed bar](lowram/live_60.gif)
+![Separate rotating quadrupole experiment](lowram/forced_bar_60.gif)
+
+[Low-RAM source code, science caveats and numerical diagnostics](lowram/README.md)
+
+---
+
+
 ### A reproducible N-body pilot inspired by Noguchi (2001)
 
 **59,985 particles · live disc, halo and bulge · C++ / Python · numerical validation included**
