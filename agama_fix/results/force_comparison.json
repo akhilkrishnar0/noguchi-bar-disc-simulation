@@ -1,0 +1,35 @@
+{
+  "setup": "same AGAMA particle realization; exact finite-N pairwise Plummer force vs smooth unsoftened AGAMA potential",
+  "N": 10000,
+  "sample_count": 768,
+  "cases": [
+    {
+      "tag": "eps_1p0",
+      "median_force_error_pct": 7.985008139848407,
+      "disc_force_median_error_pct": 7.661808796299607,
+      "disc_radial_force_median_fractional_bias": 0.014963469400736801,
+      "force_error_95pct": 51.837217825278294,
+      "sampled_disc_vertical_virial_ratio": 1.2889293244552424,
+      "sampled_AGAMA_smooth_vertical_virial_ratio": 1.128250952275751
+    },
+    {
+      "tag": "eps_0p5",
+      "median_force_error_pct": 9.286926977499752,
+      "disc_force_median_error_pct": 9.25648957545499,
+      "disc_radial_force_median_fractional_bias": 0.005080625263305966,
+      "force_error_95pct": 51.989833426583964,
+      "sampled_disc_vertical_virial_ratio": 1.187583961044855,
+      "sampled_AGAMA_smooth_vertical_virial_ratio": 1.128250952275751
+    },
+    {
+      "tag": "eps_0p25",
+      "median_force_error_pct": 10.570337813572511,
+      "disc_force_median_error_pct": 10.592608290667751,
+      "disc_radial_force_median_fractional_bias": 0.00361715771402318,
+      "force_error_95pct": 56.85623288768243,
+      "sampled_disc_vertical_virial_ratio": 1.1466018176156185,
+      "sampled_AGAMA_smooth_vertical_virial_ratio": 1.128250952275751
+    }
+  ],
+  "interpretation": "No single force-error statistic establishes an equilibrated live galaxy. Shot noise, softening and dynamics require separate tests."
+}
