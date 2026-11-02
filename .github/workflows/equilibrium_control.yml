@@ -1,0 +1,37 @@
+name: Validate and publish equilibrium control
+on:
+  push:
+    paths:
+      - 'equilibrium_control/*.py'
+      - '.github/workflows/equilibrium_control.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install requirements
+        run: python -m pip install -r requirements.txt
+      - name: Run numerical unit and convergence tests
+        run: python -m unittest discover -s equilibrium_control -p test_control.py -v
+      - name: Run independent controlled integrations
+        run: |
+          python equilibrium_control/control.py --out equilibrium_control/results/unforced
+          python equilibrium_control/control.py --forced --out equilibrium_control/results/forced
+      - name: Generate three epochs and GIFs
+        run: python equilibrium_control/render.py
+      - name: Publish validated outputs
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add equilibrium_control/unforced_control.gif equilibrium_control/forced_control.gif equilibrium_control/three_snapshots_control.png equilibrium_control/control_diagnostics.png equilibrium_control/results/unforced/summary.json equilibrium_control/results/unforced/diagnostics.csv equilibrium_control/results/forced/summary.json equilibrium_control/results/forced/diagnostics.csv
+          if ! git diff --cached --quiet; then
+            git commit -m 'Publish tested non-self-gravitating control plots and diagnostics'
+            git push
+          fi

@@ -1,5 +1,21 @@
 # Bar-driven disc evolution
 
+### 2026-11-02: Equilibrium diagnosis and controlled repair
+
+The prior 1,500-particle **self-gravitating** experiment still fails
+vertical stationarity, numerical convergence and cross-platform reproducibility.
+We have **not** claimed to fix that live galaxy model. Instead, an independent
+**3,000-tracer, non-self-gravitating fixed-potential** comparison now passes
+the 4.5 Gyr numerical stationarity and conservation checks and explicitly
+tests an imposed rotating m=2 field. This separates integrator/bar-forcing
+performance from the physically inconsistent live initial conditions.
+
+[Validated fixed-potential control, code, GIFs and three epochs](equilibrium_control/README.md)
+
+![Numerical control: fixed potential, NOT a live Noguchi simulation](equilibrium_control/three_snapshots_control.png)
+
+---
+
 ### NEW: Low-memory t=60 tests (equilibrium FAILED)
 
 A separate **1,500-particle** exploratory setup completed the full **t=0–60** interval
