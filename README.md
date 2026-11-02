@@ -1,5 +1,45 @@
 # Bar-driven disc evolution
 
+
+## Latest update — 02 November 2026, 20:35 IST (UTC+05:30)
+
+**10,000-particle, live disc–halo–bulge validation completed; physical equilibrium remains unverified.** The updated Barnes–Hut solver now reads the softening length from the particle file, and its three fast regression tests pass. The full 300 Myr comparison reused **exactly the same AGAMA-generated particle positions and velocities** in all three runs, with no imposed bar.
+
+| Diagnostic (0–300 Myr) | Baseline | Refined integration | Half softening |
+|---|---:|---:|---:|
+| Particle count | 10,000 | 10,000 | 10,000 |
+| Integration timestep | 0.25 Myr | 0.125 Myr | 0.125 Myr |
+| Tree opening angle | 0.50 | 0.35 | 0.35 |
+| Exact total-energy drift | +0.2306% | **+0.0185%** | +0.2235% |
+| Disc RMS-height change | +20.38% | +18.80% | +20.06% |
+| Total angular-momentum drift | +0.0206% | +0.0106% | +0.0053% |
+| 300 Myr equilibrium screen | **FAILED** | **FAILED** | **FAILED** |
+
+**Interpretation:** Better time integration and tighter force calculation improve energy conservation substantially, but do **not** cure vertical thickening. The original finite-N Plummer accelerations differ from the smooth AGAMA reference by about **8% in median magnitude**, reflecting softening and finite-particle effects. The live model must not yet be interpreted as spontaneous bar formation or disc transformation.
+
+### Latest live N-body snapshots and diagnostics
+
+**Snapshots at 0, 150 and 300 Myr:** comparison of the baseline and reduced-softening simulations; the numerical solver evolves the live disc, halo and bulge.
+
+![Latest 300 Myr live N-body snapshots — baseline and reduced softening](agama_fix/results/three_epochs_comparison.png)
+
+![300 Myr numerical validation — energy, angular momentum, disc thickness and half-mass radius](agama_fix/results/numerical_diagnostics.png)
+
+[Full force comparison and reproducible code](agama_fix/README.md) · [Measured validation JSON](agama_fix/results/fix_validation.json) · [Successful publication workflow](https://github.com/akhilkrishnar0/noguchi-bar-disc-simulation/actions/runs/41461330481)
+
+### GIF animations — earlier controlled experiments
+
+> **These GIFs are from the earlier 3,000-tracer fixed-potential tests (0–4.5 Gyr), not from the new live 10,000-particle simulations.** The rotating-bar GIF shows an **externally imposed** m=2 potential; neither animation demonstrates spontaneous bar formation.
+
+| Unforced fixed-potential control | Externally imposed rotating m=2 control |
+|---|---|
+| ![Earlier unforced fixed-potential orbit GIF](equilibrium_control/unforced_control.gif) | ![Earlier imposed m=2 fixed-potential orbit GIF](equilibrium_control/forced_control.gif) |
+
+The earlier **live 1,500-particle** unforced and imposed-bar GIFs, three-snapshot figure, and their failed-equilibrium caveats are **retained below**. All prior pilot results, documentation and plots remain unchanged.
+
+---
+
+
 ### Live 10k galaxy: force/softening diagnosis
 
 The AGAMA 300 Myr galaxy **failed** the initial short stationarity screen:
