@@ -53,11 +53,11 @@ only summary CSV/JSON and GIF/PNG outputs.
 
 | Diagnostic | Unforced | Imposed m=2 field |
 |---|---:|---:|
-| Final global A2 | 0.152 | 0.402 |
-| Self-gravity-only E change | +0.259% | +20.10% (externally driven) |
-| Lz change | +0.109% | +22.11% (externally torqued) |
+| Final global A2 (GitHub Actions) | 0.554 | 0.173 |
+| Self-gravity-only E change (GitHub Actions) | -0.080% | +19.85% (externally driven) |
+| Lz change (GitHub Actions) | -1.473% | +21.45% (externally torqued) |
 | Initial disc RMS height | 1.72 kpc | 1.72 kpc |
-| Final disc RMS height | 13.87 kpc | 12.12 kpc |
+| Final disc RMS height (GitHub Actions) | 14.43 kpc | 11.89 kpc |
 
 **Equilibrium FAILED**: the disc thickened by 17.2% even in the first
 75 Myr after the warm-up; it expands grossly by t=60. A shorter-timestep
@@ -74,3 +74,15 @@ measurements of coherent bar phase, pattern speed and angular momentum exchange.
 
 References: [Noguchi (2001)](https://doi.org/10.1046/j.1365-8711.2001.04910.x);
 [Sellwood (2016)](https://doi.org/10.3847/0004-637X/819/2/92).
+
+### Independent-machine comparison
+
+The first local run, with the same seed and nominal setup, produced final A2
+values **0.152 (unforced)** and **0.402 (forced)**, while the GitHub Actions
+rerun produced **0.554 (unforced)** and **0.173 (forced)**. The first 75 Myr
+stationarity and timestep diagnostics agree closely across machines, but the
+long-term evolution does **not** agree. This severe cross-environment
+sensitivity is an additional **failed convergence/reproducibility diagnostic**.
+Do not choose the more aesthetically pleasing realization as a physical result.
+See `long_run_summary.json` for the values corresponding to the GIFs committed
+on GitHub. The provided local archive contains the separate local realization.
