@@ -1,6 +1,38 @@
 # Stage 1: 300 Myr live N-body equilibrium test
 
-**Pending live validation; do not claim a successful result before the measurements.**
+
+## Executed result (2026-11-02)
+
+**GitHub Actions execution succeeded, but the scientific equilibrium screen FAILED.**
+The following values come from measured simulation outputs, not an illustration:
+
+| Diagnostic (300 Myr) | Measured | Gate |
+|---|---:|---|
+| Initial disc median Q | 1.703 | 1–2.5 (pass) |
+| Disc RMS height change | +20.384% | <5% (FAIL) |
+| Disc half-mass radius change | +0.901% | <2% (pass) |
+| Exact endpoint energy change | +0.2306% | <0.1% (FAIL) |
+| Total Lz change | +0.02063% | <0.05% (pass) |
+| Initial A2 | 0.01257 | bar not established |
+| Final A2 | 0.01283 | bar not established |
+
+![Three observed epochs](results/three_epochs.png)
+![Live stationarity diagnostics](results/stationarity.png)
+![Disk Q and density profiles](results/profiles.png)
+
+[Machine-readable full validation result](results/validation.json)
+
+The action-DF model does **not** pass live numerical equilibrium even though
+its smooth analytic DF iteration converged in mass. It is incorrect to say
+that we have fixed vertical equilibrium. The measured evolution is consistent
+with several still-unresolved effects: a mismatch between smooth DF potential
+and discrete Plummer-softened forces, limited particle number, and/or numerical
+force/timestep error. The data do not uniquely isolate their relative roles.
+Before a 4.5 Gyr bar run, compare exact direct forces against the sampled
+AGAMA potential in the initial state and repeat with finer timestep/tree
+accuracy, consistent softening, and larger particle numbers.
+
+
 
 This experiment samples iterative self-consistent action-based distribution
 functions with [AGAMA](https://github.com/GalacticDynamics-Oxford/Agama):
