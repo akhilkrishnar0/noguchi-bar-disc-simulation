@@ -53,3 +53,37 @@ A genuine physical repair may require generating the equilibrium DF in a
 potential consistent with the finite-N softening and demonstrating
 particle-number, force-opening, timestep, and multi-seed convergence.
 Nothing here establishes a full Noguchi (2001) reproduction.
+
+## Completed diagnostic results (2026-11-02)
+
+The GitHub Actions rerun completed and published the numerical files.
+The first workflow produced the results but its `git push` was rejected
+because the branch advanced; the corrected workflow rebased onto `origin/main`
+and successfully published them (commit `19d7d91`).
+
+| Diagnostic over 300 Myr | Baseline | Refined | Half softening |
+|---|---:|---:|---:|
+| Exact total-energy drift | +0.2306% | **+0.01851%** | +0.22351% |
+| Disc RMS-height change | +20.384% | +18.797% | +20.061% |
+| Lz drift | +0.02063% | +0.01056% | +0.00531% |
+| Disc half-mass radius drift | +0.901% | +1.203% | -0.851% |
+| Short stationarity result | FAIL | FAIL | FAIL |
+
+The tighter opening angle and half-sized timestep **improved energy
+conservation by a factor of 12.5**, but none of these interventions achieved
+vertical stationarity. The half-softening model fails the energy criterion
+as well as vertical stationarity. The direct-pair finite-N vs AGAMA smooth
+median force disagreement is 7.99%, 9.29%, and 10.57% for epsilon scale
+1, 0.5, and 0.25 respectively (different concepts from systematic force bias).
+Reducing epsilon decreases radial force bias, but increases discreteness-noise
+force discrepancies. No single numerical setting demonstrates a physical cure.
+
+![Observed three-epoch comparison](results/three_epochs_comparison.png)
+
+![Numerical evolution diagnostics](results/numerical_diagnostics.png)
+
+The force discrepancy and initial AGAMA vs finite-particle DF mismatch are
+plausible contributors, but their separate causal contributions remain to be
+established. Increasing resolution and matching the softened potential to the
+DF are the next physical steps. **Do not interpret these 300 Myr data as bar
+formation or as an equilibrium galaxy.**
