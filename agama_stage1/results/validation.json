@@ -1,0 +1,50 @@
+{
+  "status": "FAILED_EQUILIBRIUM_SCREEN",
+  "passed": false,
+  "N": 10000,
+  "duration_Myr": 300,
+  "integrator_timestep_Myr": 0.25,
+  "snapshot_Myr": 5,
+  "exact_energy_change_pct": 0.23060016090483226,
+  "Lz_change_pct": 0.020630084228923096,
+  "disc_z_rms_change_pct": 20.38404512607461,
+  "disc_R50_change_pct": 0.9008759026716939,
+  "measured_Q_initial_median": 1.7032497500192578,
+  "epochs_Myr": [
+    0,
+    150,
+    300
+  ],
+  "structures": [
+    {
+      "R50": 0.44146119543807716,
+      "zrms": 0.042053815872297035,
+      "A2": 0.01256684004203725
+    },
+    {
+      "R50": 0.4529089860064684,
+      "zrms": 0.04950260726960235,
+      "A2": 0.011848759210201438
+    },
+    {
+      "R50": 0.4454382129674252,
+      "zrms": 0.050626084676942386,
+      "A2": 0.012828211566203505
+    }
+  ],
+  "checks": {
+    "finite": true,
+    "exact_energy_abs_pct_below_0p1": false,
+    "total_Lz_abs_pct_below_0p05": true,
+    "vertical_rms_abs_pct_below_5": false,
+    "R50_abs_pct_below_2": true,
+    "measured_initial_Q_median_between_1_and_2p5": true
+  },
+  "caveats": [
+    "AGAMA initial DF is in smooth potential; simulation applies Plummer softening",
+    "Model halo and truncation are assumptions, not original paper's Fig.1 halo",
+    "300 Myr stationarity cannot establish t=60 stability",
+    "N=10000 is not converged; force, softening, timestep and N study still required",
+    "No bar intentionally imposed or established"
+  ]
+}
