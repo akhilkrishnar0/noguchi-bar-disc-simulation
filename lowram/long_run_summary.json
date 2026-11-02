@@ -1,0 +1,36 @@
+{
+  "live_60": {
+    "N": 1500,
+    "duration_code_units": 60,
+    "duration_Myr": 4500,
+    "output_interval_Myr": 5,
+    "E_self_change_percent": -0.07979835112940671,
+    "Lz_change_percent": -1.4730248547310754,
+    "z_rms_kpc_start_end": [
+      1.7240695389887999,
+      14.4313898224869
+    ],
+    "A2_start_end": [
+      0.02512692613374,
+      0.55385999014593
+    ],
+    "stationary_equilibrium": false
+  },
+  "forced_60": {
+    "N": 1500,
+    "duration_code_units": 60,
+    "duration_Myr": 4500,
+    "output_interval_Myr": 5,
+    "E_self_change_percent": 19.853106890290082,
+    "Lz_change_percent": 21.447370160423574,
+    "z_rms_kpc_start_end": [
+      1.7240695389887999,
+      11.8929475914642
+    ],
+    "A2_start_end": [
+      0.02512692613374,
+      0.17267955364541
+    ],
+    "stationary_equilibrium": false
+  }
+}

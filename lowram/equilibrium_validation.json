@@ -1,0 +1,22 @@
+{
+  "status": "FAILED_EQUILIBRIUM",
+  "early_height_change_percent": 17.22126615362869,
+  "fine_vs_regular_at_75myr_percent": {
+    "zrms": -0.0025300711232138957,
+    "meanR": -0.01503930374855864,
+    "A2": 8.624636050327556
+  },
+  "criteria": {
+    "height_stationarity_abs_percent_lt_5": false,
+    "short_timestep_height_agreement_abs_percent_lt_1": true,
+    "short_timestep_radius_agreement_abs_percent_lt_1": true
+  },
+  "interpretation": "Do not attribute bar or GLSB formation to an unvalidated, strongly thickening galaxy. A2 alone is not proof of a persistent stellar bar.",
+  "limitations": [
+    "1500 particles leads to shot noise and enhanced collisional relaxation",
+    "approximate circular/Jeans velocities, no exact distribution function",
+    "vertical moment matching is necessary but not sufficient",
+    "no full force/softening/seed convergence or phase-coherent bar identification",
+    "imposed bar injects energy and angular momentum"
+  ]
+}
