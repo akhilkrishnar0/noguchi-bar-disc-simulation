@@ -35,6 +35,16 @@
 |---|---|
 | ![Earlier unforced fixed-potential orbit GIF](equilibrium_control/unforced_control.gif) | ![Earlier imposed m=2 fixed-potential orbit GIF](equilibrium_control/forced_control.gif) |
 
+### Tracer surface-density and disc scale-length evolution
+
+The plot below compares **both earlier fixed-potential control GIFs** using the actual tracer positions at every saved epoch (5 Myr cadence). The upper panel follows an exponential scale length fitted to the radial tracer surface-density profile between **1.5 and 9 kpc**, shown with a **105 Myr running mean**. The lower panel compares the radial profiles at **0, 2.25 and 4.5 Gyr**.
+
+![Tracer surface-density distribution and fitted exponential disc scale-length evolution for the unforced and imposed-m=2 controls](equilibrium_control/mass_scale_evolution.png)
+
+[Download unsmoothed 5 Myr scale-length measurements (CSV)](equilibrium_control/mass_scale_evolution.csv) · [Reproducible plotting script](equilibrium_control/mass_scale.py)
+
+**Interpretation:** The unforced tracer profile remains nearly stationary; the externally driven control shows modest oscillations in the fitted scale length, without a demonstrated persistent disc expansion. **These particles have no self-gravity**, so their radial number density is only a **mass-distribution proxy**, not an actual live-galaxy stellar mass surface density. The imposed m=2 field is not a spontaneously formed bar.
+
 The earlier **live 1,500-particle** unforced and imposed-bar GIFs, three-snapshot figure, and their failed-equilibrium caveats are **retained below**. All prior pilot results, documentation and plots remain unchanged.
 
 ---

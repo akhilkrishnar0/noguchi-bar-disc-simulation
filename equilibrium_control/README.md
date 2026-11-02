@@ -22,6 +22,20 @@ quadrupole; it does not grow a bar spontaneously.
 
 ![Numerical diagnostics](control_diagnostics.png)
 
+![Radial tracer surface-density and fitted scale length over 4.5 Gyr](mass_scale_evolution.png)
+
+The figure uses **901 stored tracer snapshots** at 5 Myr intervals. The fitted
+exponential length uses annuli at radii 1.5–9 kpc, and the displayed length
+curves are 105 Myr running means. The lower panel shows the surface-number-density
+profiles at 0, 2.25 and 4.5 Gyr. This is an **equal-weight tracer-number-density
+proxy**, *not self-gravitating mass redistribution*. Differences in the forced
+case arise in an externally imposed rotating m=2 potential, not a live stellar bar.
+
+[Per-snapshot unsmoothed scale lengths (CSV)](mass_scale_evolution.csv) ·
+[Plotting source](mass_scale.py)
+
+
+
 ## Measured independent control runs (seed 2001)
 
 | Metric after 4.5 Gyr | Unforced | External rotating m=2 |
