@@ -23,7 +23,7 @@ jobs:
           sudo apt-get install -y libgsl-dev libeigen3-dev
           python -m pip install --upgrade pip setuptools wheel 'numpy<2' scipy matplotlib Pillow
       - name: Install official AGAMA
-        run: python -m pip install agama --no-build-isolation --no-cache-dir
+        run: CPLUS_INCLUDE_PATH=/usr/include/eigen3 python -m pip install agama --no-build-isolation --no-cache-dir --config-settings=--build-option=--yes
       - name: Build DF components and evolve 300 Myr
         run: bash agama_stage1/run.sh
       - name: Publish numerical results, including failure flags
