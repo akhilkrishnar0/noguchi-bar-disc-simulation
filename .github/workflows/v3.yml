@@ -33,7 +33,7 @@ jobs:
         run: python -m unittest discover -s v3/tests -v
       - name: Integrate 2 Gyr for each of 10000 matched tracers (no self-gravity)
         run: python -m v3.run --n 10000 --dt 0.25 --end 2000 --warmup 500 --growth 300 --snapshot 5 --seed 2026 --out v3/results
-      - name: Verify conservation and exact Version 2 first-300-Myr regression
+      - name: Verify conservation and Version 2 finite-N first-300-Myr agreement
         run: |
           python - <<'PY'
           import json
