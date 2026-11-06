@@ -1,0 +1,45 @@
+name: Bootstrap Milky Way existing-bar Version 2
+on:
+  push:
+    paths:
+      - '.github/workflows/bootstrap-v2.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  bootstrap:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Unpack verified Version 2 source without touching legacy branch
+        run: |
+          mv v2_source.tar.xz "$RUNNER_TEMP/mwbar_v2.tar.xz"
+          rm .github/workflows/bootstrap-v2.yml
+          tar -xJf "$RUNNER_TEMP/mwbar_v2.tar.xz"
+          test -f mwbar/model.py
+          test -f .github/workflows/simulate.yml
+      - name: Install current model package
+        run: python -m pip install -e .
+      - name: Seven physical and numerical regression checks
+        run: python -m unittest discover -s tests -v
+      - name: Execute 10000-tracer paired Milky Way existing-bar experiment
+        run: python -m mwbar.run --n 10000 --dt 0.25 --end 300 --warmup 500 --growth 300 --snapshot 5 --seed 2026 --out results
+      - name: Preserve original 61-snapshot orbit histories
+        uses: actions/upload-artifact@v4
+        with:
+          name: mw-bar-v2-initial-orbit-histories
+          path: results/*_orbits.npz
+          retention-days: 30
+      - name: Atomically publish clean Version 2 source, measurements and figures to main
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'Launch clean MW existing-bar v2; publish validated 10k tracer simulations'
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
