@@ -1,4 +1,48 @@
-# Milky Way Bar Dynamics — Version 2
+# Milky Way Bar Dynamics — Versions 2 and 3
+
+## Version 3 — 2 Gyr existing-bar extension (6 November 2026)
+
+**Same Milky Way-like potential, existing-bar parameters, 10,000 tracers, random seed and numerical timestep as Version 2; science duration extended from 300 Myr to 2 Gyr.** A 0.25 Myr integration step and 5 Myr output cadence produce 401 snapshots per experiment. Both cases retain the original 500 Myr pre-science preparation.
+
+**All earlier results remain unchanged:** [Version 2's original 300 Myr figures, GIF, measurements and source](results/) remain on main, with a separate [Version 2 archival branch](../../tree/versions/v2-300myr-2026-11-06). The [complete Version 1 legacy branch](../../tree/legacy/v1-2026-11-06) also remains intact.
+
+| 2 Gyr diagnostic | Unbarred control | Existing-bar experiment |
+|---|---:|---:|
+| Imposed bar force ratio Qb | 0 | **0.12, fixed throughout** |
+| Reference bar potential scale | — | **4.8 kpc, fixed throughout** |
+| Inner tracer m=2 amplitude A2 | 0.0069 | **0.1415** |
+| Fourier coherent tracer-response extent | Not applicable | **5.0 kpc (proxy only)** |
+| Exponential disc Rd, 4–11 kpc, at 0 → 2 Gyr | 2.769 → 2.809 kpc | 2.909 → 2.898 kpc |
+| Change in fitted Rd, 4–11 kpc | +1.45% | −0.39% |
+| Change in fitted Rd, 6–12 kpc | −0.17% | **+4.86%** |
+| Median absolute guiding-radius shift | ~0 kpc | 0.257 kpc |
+| Mean Lz change | ~0% | −0.318% |
+| Relative drift of mean conserved quantity | 1.95e−7 (energy) | 2.16e−5 (Jacobi) |
+
+**Bar strength and length are not evolving physical-bar measurements:** the external bar amplitude, pattern speed and reference scale are fixed by design. The time-varying Fourier A2 and its threshold-dependent extent describe the **tracer response**, not formation, physical lengthening or slowdown. The disc-scalelength result depends strongly on fit radius and is **not a converged finding of secular disc expansion**. Only numerical orbit controls have passed.
+
+### Computed 2 Gyr figures and animations
+
+![Face-on actual tracer snapshots at 0, 0.5, 1 and 2 Gyr](v3/results/face_on_2gyr.png)
+
+![Time-resolved bar-response amplitude, Fourier extent and constant imposed force](v3/results/bar_strength_length_2gyr.png)
+
+![Outer-disc scale length and extrapolated brightness proxy](v3/results/disc_length_brightness_2gyr.png)
+
+![Face-on illustrative r-band surface brightness proxy](v3/results/brightness_maps_2gyr.png)
+
+![Actual 2 Gyr tracer-orbit animation for barred and unbarred galaxies](v3/results/orbits_2gyr.gif)
+
+![Illustrative face-on brightness-proxy evolution over 2 Gyr](v3/results/brightness_2gyr.gif)
+
+**Brightness is illustrative:** uniform stellar mass-to-light ratio M/L(r)=1.5 solar units and solar SDSS r-band absolute AB magnitude 4.65 are assumed. Equal-weight, massless stellar tracers are normalized to the adopted disc mass. There is no gas, star formation, dust, stellar evolution or population synthesis. Constant M/L makes mass-proxy and light-proxy scalelengths equal by definition.
+
+[Complete Version 3 methods, numerical checks, additional plots, CSV profiles, source and GIFs](v3/README.md)
+
+---
+
+## Version 2 — Original 300 Myr experiment (preserved)
+
 
 **A present-day Milky Way-like disc at redshift z ~ 0, with an existing rotating bar.** The goal is to measure **how that bar changes stellar orbits, guiding-centre radii, angular momentum, and tracer surface-density profiles**. We do **not** model bar formation.
 

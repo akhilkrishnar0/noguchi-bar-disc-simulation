@@ -6,3 +6,6 @@ __pycache__/
 results/*_orbits.npz
 results/*_phase*.npz
 results/*.log
+
+# Full Version 3 tracer orbit files live only in Actions artifacts
+v3/results/*_orbits.npz

@@ -1,0 +1,71 @@
+name: Version 3 — 2 Gyr existing-bar Milky Way tracer evolution
+on:
+  push:
+    paths:
+      - 'v3_source.tar.xz'
+      - 'v3/*.py'
+      - 'v3/tests/**'
+      - '.github/workflows/v3.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  v3-science:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Extract independently tested Version 3 scripts if bootstrapping
+        run: |
+          if [ -f v3_source.tar.xz ]; then
+            tar -xJf v3_source.tar.xz
+          fi
+          test -f v3/run.py
+          test -f v3/tests/test_v3.py
+      - name: Install unchanged Version 2 dynamical engine
+        run: python -m pip install -e .
+      - name: Verify Version 2 orbital controls
+        run: python -m unittest discover -s tests -v
+      - name: Verify Version 3 Fourier and brightness measurements
+        run: python -m unittest discover -s v3/tests -v
+      - name: Integrate 2 Gyr for each of 10000 matched tracers (no self-gravity)
+        run: python -m v3.run --n 10000 --dt 0.25 --end 2000 --warmup 500 --growth 300 --snapshot 5 --seed 2026 --out v3/results
+      - name: Verify conservation and exact Version 2 first-300-Myr regression
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          s=json.loads(Path('v3/results/summary_v3.json').read_text())
+          assert s['status']=='PASS_NUMERICAL_ORBIT_CONTROL_ONLY',s['checks']
+          r=s.get('v2_first_300myr_comparison',{})
+          assert sorted(r)==['barred','unbarred'],r
+          assert all(row['passed'] for row in r.values()),r
+          for name in ('face_on_2gyr.png','bar_strength_length_2gyr.png','brightness_profiles_2gyr.png',
+                       'brightness_maps_2gyr.png','disc_length_brightness_2gyr.png',
+                       'migration_torque_2gyr.png','orbits_2gyr.gif','brightness_2gyr.gif'):
+              assert (Path('v3/results')/name).is_file(),name
+          print('Version 3 numerical checks and Version 2 regression verified')
+          PY
+      - name: Preserve full 401-snapshot tracer trajectories (14-day artifact)
+        uses: actions/upload-artifact@v4
+        with:
+          name: mw-bar-v3-2gyr-orbit-histories
+          path: v3/results/*_orbits.npz
+          retention-days: 14
+          if-no-files-found: error
+      - name: Publish Version 3 source and measured plots; leave Version 2 untouched
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add v3/__init__.py v3/measure.py v3/plots.py v3/run.py v3/README.md v3/tests/test_v3.py
+          git add v3/results/*.png v3/results/*.gif v3/results/*.csv v3/results/*.json
+          if [ -f v3_source.tar.xz ]; then git rm -f v3_source.tar.xz; fi
+          if ! git diff --cached --quiet; then
+            git commit -m 'Publish 2 Gyr MW existing-bar tracer response, scalelength and brightness proxies'
+            git fetch origin main
+            git rebase origin/main
+            git push origin HEAD:main
+          fi
