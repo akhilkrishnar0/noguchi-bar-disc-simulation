@@ -18,10 +18,13 @@ jobs:
       - name: Unpack verified Version 2 source without touching legacy branch
         run: |
           mv v2_source.tar.xz "$RUNNER_TEMP/mwbar_v2.tar.xz"
-          rm .github/workflows/bootstrap-v2.yml
           tar -xJf "$RUNNER_TEMP/mwbar_v2.tar.xz"
           test -f mwbar/model.py
           test -f .github/workflows/simulate.yml
+          # GITHUB_TOKEN cannot create/update workflow files. Keep the
+          # existing bootstrap workflow unchanged and install the permanent
+          # workflow later through the authorized GitHub connector.
+          mv .github/workflows/simulate.yml "$RUNNER_TEMP/mwbar_simulate.yml"
       - name: Install current model package
         run: python -m pip install -e .
       - name: Seven physical and numerical regression checks
