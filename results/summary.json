@@ -1,0 +1,109 @@
+{
+  "status": "PASS_NUMERICAL_ORBIT_CONTROL_ONLY",
+  "not_self_gravitating": true,
+  "bar_status": "imposed existing m=2 potential, constant strength/pattern speed at science t=0",
+  "warmup_bar_ramp_myr": 300.0,
+  "pre_science_settle_myr": 200.0,
+  "matched_initial_particles_at_time_myr": -500.0,
+  "different_phase_space_at_science_t0": true,
+  "unit_system": {
+    "length": "kpc",
+    "time": "Myr",
+    "mass": "Msun",
+    "velocity": "kpc/Myr"
+  },
+  "config": {
+    "n": 10000,
+    "seed": 2026,
+    "timestep_myr": 0.25,
+    "warmup_myr": 500.0,
+    "growth_myr": 300.0,
+    "science_myr": 300.0,
+    "snapshot_myr": 5.0
+  },
+  "galaxy_model": {
+    "solar_radius": 8.2,
+    "solar_vcirc": 232.8,
+    "disc_mass": 53000000000.0,
+    "disc_a": 2.75,
+    "disc_b": 0.3,
+    "bulge_mass": 8000000000.0,
+    "bulge_a": 0.55,
+    "halo_rs": 18.0,
+    "halo_c": 12.0,
+    "bar_length": 4.8,
+    "bar_core": 3.5,
+    "bar_axis_ratio_z": 0.6,
+    "bar_pattern_kms_kpc": 39.0,
+    "bar_force_fraction": 0.12,
+    "bar_angle_deg": 0.0,
+    "tracer_rd": 2.6,
+    "tracer_hz": 0.26,
+    "sigma_R_sun_kms": 35.0
+  },
+  "derived": {
+    "halo_mass_Msun": 1385479268898.5488,
+    "Vc_sun_kms": 232.80000000000004,
+    "bar_period_myr": 157.52948001772012,
+    "target_max_bar_tangential_force_fraction": 0.12,
+    "resonance_radii_kpc": {
+      "ILR": [
+        0.8943149846207054
+      ],
+      "CR": [
+        5.98684602857475
+      ],
+      "OLR": [
+        10.108066970825057
+      ]
+    }
+  },
+  "control": {
+    "mode": "axisymmetric control",
+    "R50_change_pct": 0.5905598838559234,
+    "zrms_change_pct": -0.07238814827996709,
+    "Rd_initial_kpc": 2.7685813585354624,
+    "Rd_final_kpc": 2.821434425890572,
+    "A2_initial": 0.004755996347382716,
+    "A2_final": 0.009873821142524518,
+    "mean_Lz_change_pct": 6.803453356241107e-08,
+    "integral_name": "inertial E",
+    "max_relative_mean_integral_deviation": 1.6643394467945262e-07,
+    "median_abs_guiding_shift_kpc": 1.027320095658979e-07,
+    "frac_abs_guiding_shift_gt_0p5_kpc": 0.0,
+    "frac_abs_guiding_shift_gt_1_kpc": 0.0
+  },
+  "barred": {
+    "mode": "existing rotating external bar",
+    "R50_change_pct": -0.9786506065094569,
+    "zrms_change_pct": -2.1423147875871074,
+    "Rd_initial_kpc": 2.909002995576315,
+    "Rd_final_kpc": 2.672482695641175,
+    "A2_initial": 0.14229092039540667,
+    "A2_final": 0.12946419570520015,
+    "mean_Lz_change_pct": -0.6250376529910673,
+    "integral_name": "Jacobi E-Omega_b Lz",
+    "max_relative_mean_integral_deviation": 1.5407373915673782e-06,
+    "median_abs_guiding_shift_kpc": 0.26517031932751056,
+    "frac_abs_guiding_shift_gt_0p5_kpc": 0.3104,
+    "frac_abs_guiding_shift_gt_1_kpc": 0.1594
+  },
+  "checks": {
+    "unbarred_energy_rel_error_below_1e-4": true,
+    "unbarred_Lz_pct_below_1e-3": true,
+    "barred_jacobi_rel_error_below_1e-4": true,
+    "control_R50_pct_below_10": true,
+    "control_zrms_pct_below_15": true
+  },
+  "scientific_limitations": [
+    "Collisionless massless tracer particles; disc, bulge and halo gravitational fields are fixed and analytic",
+    "The prescribed quadrupole bar is not a self-consistent 3D Ferrers bar or bar formation model",
+    "No gas, star formation, live halo resonant absorption, or bar slowdown",
+    "Initial epicycle DF is approximate; preparatory integration suppresses but does not prove absence of transients",
+    "Tracer-weighted density is a proxy, not measured self-consistent galaxy mass redistribution",
+    "Guiding radii defined relative to axisymmetric background, approximate in strongly barred regions",
+    "Fitted outer Rd depends on specified radial range (4\u201311 kpc)",
+    "Barred and unbarred t=0 states differ after matched pre-science preparation; match is at -warmup",
+    "Short 300 Myr evolution is for orbital response, not many-Gyr structural change"
+  ]
+}
