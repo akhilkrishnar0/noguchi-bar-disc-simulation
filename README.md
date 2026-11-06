@@ -10,14 +10,14 @@
 |---|---:|---:|
 | Imposed bar force ratio Qb | 0 | **0.12, fixed throughout** |
 | Reference bar potential scale | — | **4.8 kpc, fixed throughout** |
-| Inner tracer m=2 amplitude A2 | 0.0069 | **0.1415** |
+| Inner tracer m=2 amplitude A2 | 0.0069 | **0.1411** |
 | Fourier coherent tracer-response extent | Not applicable | **5.0 kpc (proxy only)** |
 | Exponential disc Rd, 4–11 kpc, at 0 → 2 Gyr | 2.769 → 2.809 kpc | 2.909 → 2.898 kpc |
 | Change in fitted Rd, 4–11 kpc | +1.45% | −0.39% |
 | Change in fitted Rd, 6–12 kpc | −0.17% | **+4.86%** |
 | Median absolute guiding-radius shift | ~0 kpc | 0.257 kpc |
-| Mean Lz change | ~0% | −0.318% |
-| Relative drift of mean conserved quantity | 1.95e−7 (energy) | 2.16e−5 (Jacobi) |
+| Mean Lz change | ~0% | −0.316% |
+| Relative drift of mean conserved quantity | 1.95e−7 (energy) | 5.05e−6 (Jacobi) |
 
 **Bar strength and length are not evolving physical-bar measurements:** the external bar amplitude, pattern speed and reference scale are fixed by design. The time-varying Fourier A2 and its threshold-dependent extent describe the **tracer response**, not formation, physical lengthening or slowdown. The disc-scalelength result depends strongly on fit radius and is **not a converged finding of secular disc expansion**. Only numerical orbit controls have passed.
 
